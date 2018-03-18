@@ -45,4 +45,10 @@ public class Filme {
 		return resultado;
 	}
 
+	int lerPontosLocadorFreqüente(int diasAlugados) {
+		if ((lerCódigoPreço() == Filme.LANÇAMENTO_NOVO) && diasAlugados > 1)
+			return 2;
+		else
+			return 1;
+	}
 }

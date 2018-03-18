@@ -21,10 +21,7 @@ class Locação {
 		return _filme.lerPreço(_diasAlugados);
 	}
 
-	public int lerPontosLocadorFreqüente() {
-		if ((lerFilme().lerCódigoPreço() == Filme.LANÇAMENTO_NOVO) && lerDiasAlugados() > 1)
-			return 2;
-		else
-			return 1;
+	int lerPontosLocadorFreqüente() {
+		return _filme.lerPontosLocadorFreqüente(_diasAlugados);
 	}
 }
