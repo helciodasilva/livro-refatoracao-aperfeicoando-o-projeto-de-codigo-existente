@@ -34,6 +34,21 @@ class Cliente {
 		return resultado;
 	}
 
+	public String contaHtml() {
+		Enumeration locações = _locações.elements();
+		String resultado = "<H1>Locações de <EM>" + lerNome() + "</EM></H1><P>\n";
+		while (locações.hasMoreElements()) {
+			Locação cada = (Locação) locações.nextElement();
+			//mostrar valores para cada locação
+			resultado += cada.lerFilme().lerTítulo() + ": " + String.valueOf(cada.lerPreço()) + "<BR>\n";
+		}
+		//adicionar linhas de rodapé
+		resultado += "<P>Você deve <EM>" + String.valueOf(lerPreçoTotal()) + "</EM><P>\n";
+		resultado += "Nesta locação você ganhou <EM>" + String.valueOf(lerTotalPontosLocadorFreqüente())
+				+ "</EM> pontos de locador freqüente<P>";
+		return resultado;
+	}
+
 	private double lerPreçoTotal() {
 		double resultado = 0;
 		Enumeration locações = _locações.elements();
