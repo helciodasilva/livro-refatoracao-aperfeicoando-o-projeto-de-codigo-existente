@@ -25,10 +25,7 @@ class Cliente {
 		Enumeration locações = _locações.elements();
 		String resultado = "Registro de locação de " + lerNome() + "\n";
 		while (locações.hasMoreElements()) {
-			double estaQuantia = 0;
 			Locação cada = (Locação) locações.nextElement();
-
-			estaQuantia = cada.lerPreço();
 
 			//adicionar os pontos do locador freqüente
 			pontosLocadorFreqüente++;
@@ -37,8 +34,8 @@ class Cliente {
 				pontosLocadorFreqüente++;
 
 			//mostrar valores para esta locação
-			resultado += "\t" + cada.lerFilme().lerTítulo() + "\t" + String.valueOf(estaQuantia) + "\n";
-			quantiaTotal += estaQuantia;
+			resultado += "\t" + cada.lerFilme().lerTítulo() + "\t" + String.valueOf(cada.lerPreço()) + "\n";
+			quantiaTotal += cada.lerPreço();
 		}
 		//adicionar linhas de rodapé
 		resultado += "O valor devido é " + String.valueOf(quantiaTotal) + "\n";
