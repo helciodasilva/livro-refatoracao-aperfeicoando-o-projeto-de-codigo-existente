@@ -46,8 +46,8 @@ class Cliente {
 		return resultado;
 	}
 
-	private int quantiaDe(Locação cada) {
-		int estaQuantia = 0;
+	private double quantiaDe(Locação cada) {
+		double estaQuantia = 0;
 		//determinar quantias para cada linha
 		switch (cada.lerFilme().lerCódigoPreço()) {
 		case Filme.NORMAL:
