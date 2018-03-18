@@ -6,19 +6,31 @@ public class Filme {
 	public static final int LANÇAMENTO_NOVO = 1;
 
 	private String _título;
-	private int _codigoPreço;
+	private Preço _preço;
 
 	public Filme(String título, int codigoPreço) {
 		_título = título;
-		_codigoPreço = codigoPreço;
+		gravarCódigoPreço(codigoPreço);
 	}
 
 	public int lerCódigoPreço() {
-		return _codigoPreço;
+		return _preço.lerCódigoPreço();
 	}
 
 	public void gravarCódigoPreço(int arg) {
-		_codigoPreço = arg;
+		switch (arg) {
+		case NORMAL:
+			_preço = new PreçoNormal();
+			break;
+		case INFANTIL:
+			_preço = new PreçoInfantil();
+			break;
+		case LANÇAMENTO_NOVO:
+			_preço = new PreçoLançamento();
+			break;
+		default:
+			throw new IllegalArgumentException("Código de Preço Incorreto");
+		}
 	}
 
 	public String lerTítulo() {
