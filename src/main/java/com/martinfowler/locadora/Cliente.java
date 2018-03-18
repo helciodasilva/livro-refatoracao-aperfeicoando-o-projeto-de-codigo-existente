@@ -28,7 +28,7 @@ class Cliente {
 			double estaQuantia = 0;
 			Locação cada = (Locação) locações.nextElement();
 
-			estaQuantia = quantiaDe(cada);
+			estaQuantia = cada.lerPreço();
 
 			//adicionar os pontos do locador freqüente
 			pontosLocadorFreqüente++;
@@ -44,10 +44,6 @@ class Cliente {
 		resultado += "O valor devido é " + String.valueOf(quantiaTotal) + "\n";
 		resultado += "Você ganhou " + String.valueOf(pontosLocadorFreqüente) + " pontos de locador freqüente";
 		return resultado;
-	}
-
-	private double quantiaDe(Locação umaLocação) {
-		return umaLocação.lerPreço();
 	}
 
 }
