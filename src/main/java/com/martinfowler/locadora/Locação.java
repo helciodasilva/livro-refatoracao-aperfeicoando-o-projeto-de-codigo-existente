@@ -36,4 +36,11 @@ class Locação {
 		}
 		return resultado;
 	}
+
+	public int lerPontosLocadorFreqüente() {
+		if ((lerFilme().lerCódigoPreço() == Filme.LANÇAMENTO_NOVO) && lerDiasAlugados() > 1)
+			return 2;
+		else
+			return 1;
+	}
 }

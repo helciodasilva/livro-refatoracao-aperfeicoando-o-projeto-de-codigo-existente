@@ -27,11 +27,7 @@ class Cliente {
 		while (locações.hasMoreElements()) {
 			Locação cada = (Locação) locações.nextElement();
 
-			//adicionar os pontos do locador freqüente
-			pontosLocadorFreqüente++;
-			//adicionar bônus para uma locação de lançamentos por dois dias
-			if ((cada.lerFilme().lerCódigoPreço() == Filme.LANÇAMENTO_NOVO) && cada.lerDiasAlugados() > 1)
-				pontosLocadorFreqüente++;
+			pontosLocadorFreqüente = cada.lerPontosLocadorFreqüente();
 
 			//mostrar valores para esta locação
 			resultado += "\t" + cada.lerFilme().lerTítulo() + "\t" + String.valueOf(cada.lerPreço()) + "\n";
@@ -42,5 +38,6 @@ class Cliente {
 		resultado += "Você ganhou " + String.valueOf(pontosLocadorFreqüente) + " pontos de locador freqüente";
 		return resultado;
 	}
+
 
 }
