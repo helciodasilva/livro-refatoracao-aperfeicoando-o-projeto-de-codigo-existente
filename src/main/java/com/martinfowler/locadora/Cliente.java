@@ -46,25 +46,25 @@ class Cliente {
 		return resultado;
 	}
 
-	private double quantiaDe(Locação cada) {
-		double estaQuantia = 0;
+	private double quantiaDe(Locação umaLocação) {
+		double resultado = 0;
 		//determinar quantias para cada linha
-		switch (cada.lerFilme().lerCódigoPreço()) {
+		switch (umaLocação.lerFilme().lerCódigoPreço()) {
 		case Filme.NORMAL:
-			estaQuantia += 2;
-			if (cada.lerDiasAlugados() > 2)
-				estaQuantia += (cada.lerDiasAlugados() - 2) * 1.5;
+			resultado += 2;
+			if (umaLocação.lerDiasAlugados() > 2)
+				resultado += (umaLocação.lerDiasAlugados() - 2) * 1.5;
 			break;
 		case Filme.LANÇAMENTO_NOVO:
-			estaQuantia += cada.lerDiasAlugados() * 3;
+			resultado += umaLocação.lerDiasAlugados() * 3;
 			break;
 		case Filme.INFANTIL:
-			estaQuantia += 1.5;
-			if (cada.lerDiasAlugados() > 3)
-				estaQuantia += (cada.lerDiasAlugados() - 3) * 1.5;
+			resultado += 1.5;
+			if (umaLocação.lerDiasAlugados() > 3)
+				resultado += (umaLocação.lerDiasAlugados() - 3) * 1.5;
 			break;
 		}
-		return estaQuantia;
+		return resultado;
 	}
 
 }
