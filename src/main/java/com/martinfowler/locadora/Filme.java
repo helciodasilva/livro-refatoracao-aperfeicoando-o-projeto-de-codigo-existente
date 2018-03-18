@@ -42,9 +42,6 @@ public class Filme {
 	}
 
 	int lerPontosLocadorFreqüente(int diasAlugados) {
-		if ((lerCódigoPreço() == Filme.LANÇAMENTO_NOVO) && diasAlugados > 1)
-			return 2;
-		else
-			return 1;
+		return _preço.lerPontosLocadorFreqüente(diasAlugados);
 	}
 }
