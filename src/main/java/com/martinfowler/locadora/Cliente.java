@@ -20,18 +20,17 @@ class Cliente {
 	}
 
 	public String conta() {
-		int pontosLocadorFreqüente = 0;
 		Enumeration locações = _locações.elements();
 		String resultado = "Registro de locação de " + lerNome() + "\n";
 		while (locações.hasMoreElements()) {
 			Locação cada = (Locação) locações.nextElement();
-			pontosLocadorFreqüente += cada.lerPontosLocadorFreqüente();
 			//mostrar valores para esta locação
 			resultado += "\t" + cada.lerFilme().lerTítulo() + "\t" + String.valueOf(cada.lerPreço()) + "\n";
 		}
+
 		//adicionar linhas de rodapé
 		resultado += "O valor devido é " + String.valueOf(lerPreçoTotal()) + "\n";
-		resultado += "Você ganhou " + String.valueOf(pontosLocadorFreqüente) + " pontos de locador freqüente";
+		resultado += "Você ganhou " + String.valueOf(lerTotalPontosLocadorFreqüente()) + " pontos de locador freqüente";
 		return resultado;
 	}
 
@@ -41,6 +40,16 @@ class Cliente {
 		while (locações.hasMoreElements()) {
 			Locação cada = (Locação) locações.nextElement();
 			resultado += cada.lerPreço();
+		}
+		return resultado;
+	}
+
+	private int lerTotalPontosLocadorFreqüente() {
+		int resultado = 0;
+		Enumeration locações = _locações.elements();
+		while (locações.hasMoreElements()) {
+			Locação cada = (Locação) locações.nextElement();
+			resultado += cada.lerPontosLocadorFreqüente();
 		}
 		return resultado;
 	}
