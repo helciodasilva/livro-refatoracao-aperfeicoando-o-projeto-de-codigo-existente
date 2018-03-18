@@ -8,4 +8,8 @@ class PreçoLançamento extends Preço {
 	double lerPreço(int diasAlugados) {
 		return diasAlugados * 3;
 	}
+
+	int lerPontosLocadorFreqüente(int diasAlugados) {
+		return (diasAlugados > 1) ? 2 : 1;
+	}
 }
