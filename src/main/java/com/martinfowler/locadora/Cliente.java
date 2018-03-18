@@ -47,24 +47,7 @@ class Cliente {
 	}
 
 	private double quantiaDe(Locação umaLocação) {
-		double resultado = 0;
-		//determinar quantias para cada linha
-		switch (umaLocação.lerFilme().lerCódigoPreço()) {
-		case Filme.NORMAL:
-			resultado += 2;
-			if (umaLocação.lerDiasAlugados() > 2)
-				resultado += (umaLocação.lerDiasAlugados() - 2) * 1.5;
-			break;
-		case Filme.LANÇAMENTO_NOVO:
-			resultado += umaLocação.lerDiasAlugados() * 3;
-			break;
-		case Filme.INFANTIL:
-			resultado += 1.5;
-			if (umaLocação.lerDiasAlugados() > 3)
-				resultado += (umaLocação.lerDiasAlugados() - 3) * 1.5;
-			break;
-		}
-		return resultado;
+		return umaLocação.lerPreço();
 	}
 
 }

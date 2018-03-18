@@ -16,4 +16,24 @@ class Locação {
 	public Filme lerFilme() {
 		return _filme;
 	}
+
+	double lerPreço() {
+		double resultado = 0;
+		switch (lerFilme().lerCódigoPreço()) {
+		case Filme.NORMAL:
+			resultado += 2;
+			if (lerDiasAlugados() > 2)
+				resultado += (lerDiasAlugados() - 2) * 1.5;
+			break;
+		case Filme.LANÇAMENTO_NOVO:
+			resultado += lerDiasAlugados() * 3;
+			break;
+		case Filme.INFANTIL:
+			resultado += 1.5;
+			if (lerDiasAlugados() > 3)
+				resultado += (lerDiasAlugados() - 3) * 1.5;
+			break;
+		}
+		return resultado;
+	}
 }
